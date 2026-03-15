@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Oscars 2026 — Ballot</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Force light mode - override Safari/iOS dark mode completely */
+:root {
+  color-scheme: light only;
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --border: #e5e5e5;
+  --text: #111111;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+  --amber: #c47a00;
+  --amber-bg: #fff8ec;
+  --amber-border: #f5d78e;
+  --green: #1a6b3c;
+  --green-bg: #edf7f2;
+  --red: #c0392b;
+  --red-bg: #fdf3f2;
+  --blue: #1a4a7a;
+  --blue-bg: #eef3fa;
+  --heart: #c0392b;
+  --radius: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light only;
+    --bg: #ffffff;
+    --surface: #f8f8f8;
+    --border: #e5e5e5;
+    --text: #111111;
+    --text-secondary: #555555;
+    --text-muted: #999999;
+    --amber: #c47a00;
+    --amber-bg: #fff8ec;
+    --amber-border: #f5d78e;
+    --green: #1a6b3c;
+    --green-bg: #edf7f2;
+    --red: #c0392b;
+    --red-bg: #fdf3f2;
+    --blue: #1a4a7a;
+    --blue-bg: #eef3fa;
+    --heart: #c0392b;
+  }
+  html, body { background: #ffffff !important; color: #111111 !important; }
+  label, p, div, span, h1, h2, h3 { color: inherit; }
+}
+
+html { font-size: 16px; color-scheme: light; background: #ffffff; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff !important;
+  color: #111111 !important;
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ─── SCREENS ─── */
+.screen { display: none; }
+.screen.active { display: block; }
+
+/* ─── SHARED ─── */
+.container {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.page-top {
+  padding: 48px 0 32px;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+h1 em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+/* ─── FORM ELEMENTS ─── */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  height: 44px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: #ffffff !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #111111 !important;
+  padding: 0 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  color-scheme: light;
+}
+
+input:focus { border-color: var(--amber); }
+input.error { border-color: var(--red); }
+input::placeholder { color: var(--text-muted); }
+
+.field { margin-bottom: 16px; }
+
+/* ─── BUTTONS ─── */
+.btn {
+  display: block;
+  width: 100%;
+  height: 48px;
+  border-radius: var(--radius);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s, background 0.15s;
+  -webkit-appearance: none;
+}
+
+.btn:active { opacity: 0.85; }
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.btn-primary { background: var(--amber); color: #fff; }
+.btn-primary:not(:disabled):hover { background: #a86800; }
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+.btn-secondary:hover { border-color: #999; }
+
+.btn-amber { background: var(--amber); color: #fff; }
+.btn-amber:hover { background: #a86800; }
+
+.btn-sm {
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition: border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+  -webkit-appearance: none;
+}
+.btn-sm:hover { border-color: #999; background: var(--surface); }
+
+/* ─── DIVIDER ─── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── NOTICE STRIPS ─── */
+.notice {
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.notice-amber { background: var(--amber-bg); border: 1px solid var(--amber-border); color: #7a4a00; }
+.notice-red { background: var(--red-bg); border: 1px solid #f5c6c3; color: var(--red); }
+.notice-green { background: var(--green-bg); border: 1px solid #b8e2cb; color: var(--green); }
+
+.notice strong { font-weight: 600; }
+
+/* countdown inside notice */
+#cd-landing, #cd-lobby { font-weight: 600; }
+
+/* ─── CARD ─── */
+.card {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.card-heading {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--surface);
+}
+
+/* ════════════════════════════
+   LANDING
+════════════════════════════ */
+#screen-landing .page-top { padding-bottom: 0; }
+
+/* ════════════════════════════
+   BALLOT
+════════════════════════════ */
+#screen-ballot {
+  padding-bottom: 100px;
+}
+
+.ballot-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+}
+
+.ballot-header-inner {
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ballot-header-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--amber);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.progress-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  min-width: 48px;
+  text-align: right;
+}
+
+/* countdown bar below header */
+.cd-bar {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 20px;
+  transition: background 0.4s, color 0.4s;
+}
+.cd-bar.plenty { background: var(--amber-bg); color: #7a4a00; }
+.cd-bar.warn   { background: #fff3e0; color: #8a4500; }
+.cd-bar.urgent { background: var(--red-bg); color: var(--red); animation: blink 1.4s ease-in-out infinite; }
+.cd-bar.locked { background: var(--surface); color: var(--text-muted); }
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 20px;
+  padding: 10px 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  justify-content: center;
+}
+.legend span { display: flex; align-items: center; gap: 6px; }
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-predict { background: var(--blue); }
+.dot-heart   { background: var(--heart); }
+
+/* Section heading */
+.section-heading {
+  font-family: 'Lora', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--text);
+  padding: 28px 0 12px;
+}
+
+/* Category block */
+.cat-block {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 12px;
+  background: var(--bg);
+}
+
+.cat-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.cat-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.cat-pts {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--amber);
+  background: var(--amber-bg);
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+
+/* pills row */
+.cat-pills {
+  display: flex;
+  gap: 6px;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.pill {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--surface);
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.15s;
+}
+
+.pill.active-predict {
+  background: var(--blue-bg);
+  border-color: #a8c0e0;
+  color: var(--blue);
+}
+
+.pill.active-heart {
+  background: var(--red-bg);
+  border-color: #f5c6c3;
+  color: var(--heart);
+}
+
+/* Nominees rows */
+.nominee-row {
+  display: grid;
+  grid-template-columns: 1fr 44px 44px;
+  border-bottom: 1px solid var(--border);
+}
+.nominee-row:last-child { border-bottom: none; }
+
+.nominee-name-cell {
+  padding: 11px 14px;
+  font-size: 14px;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: default;
+}
+
+.nominee-film {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.pick-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--border);
+  cursor: pointer;
+  background: var(--bg);
+  transition: background 0.12s;
+  border: none;
+  -webkit-appearance: none;
+  border-left: 1px solid var(--border);
+}
+.pick-cell:hover { background: var(--surface); }
+
+/* circle toggle */
+.toggle-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+  font-size: 10px;
+  color: transparent;
+}
+
+.pick-cell.selected-predict .toggle-circle {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+.pick-cell.selected-heart .toggle-circle {
+  background: var(--heart);
+  border-color: var(--heart);
+  color: #fff;
+}
+
+/* Ballot footer */
+.ballot-footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border);
+  padding: 12px 20px;
+  z-index: 50;
+}
+
+.ballot-footer-inner {
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-count {
+  font-size: 13px;
+  color: var(--text-muted);
+  flex: 1;
+  white-space: nowrap;
+}
+
+.footer-count strong {
+  color: var(--text);
+  font-size: 15px;
+}
+
+/* ════════════════════════════
+   LOBBY
+════════════════════════════ */
+.room-code-box {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  background: var(--bg);
+}
+
+.room-code-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.room-code-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+}
+
+/* friends list */
+.friend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.friend-item:last-child { border-bottom: none; }
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.friend-name { font-weight: 500; flex: 1; }
+
+.friend-heart {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-style: italic;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.badge-you   { background: var(--amber-bg); color: var(--amber); border-color: var(--amber-border); }
+.badge-ready { background: var(--green-bg); color: var(--green); border-color: #b8e2cb; }
+
+/* ════════════════════════════
+   RESULTS
+════════════════════════════ */
+#screen-results { padding-bottom: 60px; }
+
+/* leaderboard */
+.lb-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 60px 130px;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+  font-size: 14px;
+}
+.lb-row:last-child { border-bottom: none; }
+.lb-row.me { background: var(--amber-bg); }
+
+.lb-rank { font-size: 13px; font-weight: 600; color: var(--text-muted); }
+.lb-rank.first { color: var(--amber); font-size: 18px; }
+.lb-name { font-weight: 500; }
+.lb-score { font-family: 'Lora', serif; font-size: 20px; font-weight: 600; text-align: right; }
+.lb-want { font-size: 12px; color: var(--text-muted); font-style: italic; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.lb-header-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 60px 130px;
+  padding: 8px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+.lb-col-h { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.lb-col-h.right { text-align: right; }
+
+/* your picks */
+.pick-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+.pick-row:last-child { border-bottom: none; }
+
+.pick-cat { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.pick-predict { font-size: 14px; color: var(--text); margin-bottom: 2px; }
+.pick-predict.correct { color: var(--green); font-weight: 600; }
+.pick-predict.wrong   { color: var(--text-muted); text-decoration: line-through; }
+.pick-heart-val { font-size: 13px; color: var(--heart); }
+.pick-pts { font-size: 13px; font-weight: 600; color: var(--amber); padding-top: 18px; }
+.pick-pts.zero { color: var(--text-muted); font-weight: 400; }
+.pick-pts.pending { color: var(--text-muted); font-weight: 400; }
+
+/* wants */
+.wants-cat-row {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.wants-cat-row:last-child { border-bottom: none; }
+.wants-cat-name {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.winner-announced {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--green-bg);
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid #b8e2cb;
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.wants-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.wants-tag {
+  font-size: 12px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 3px 10px;
+}
+.wants-tag .who { color: var(--text-muted); margin-right: 4px; }
+
+/* ── ADMIN ── */
+.admin-link {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: 'Inter', sans-serif;
+  padding: 0;
+  margin: 8px 0 16px;
+  display: block;
+  transition: color 0.15s;
+}
+.admin-link:hover { color: var(--text-secondary); }
+
+.admin-box {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.admin-box-header {
+  padding: 10px 14px;
+  background: var(--amber);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-auth-row {
+  display: flex;
+  gap: 8px;
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.admin-auth-row input {
+  flex: 1;
+  height: 38px;
+  font-size: 14px;
+}
+
+.admin-auth-row .btn-sm { height: 38px; background: var(--amber); color: #fff; border: none; }
+.admin-auth-row .btn-sm:hover { background: #a86800; }
+
+.admin-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 8px 14px;
+  font-style: italic;
+}
+
+.admin-cat {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.admin-cat:last-child { border-bottom: none; }
+
+.admin-cat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-set-badge {
+  font-size: 11px;
+  color: var(--green);
+  background: var(--green-bg);
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid #b8e2cb;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.admin-nom-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.admin-nom-btn {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.12s;
+  -webkit-appearance: none;
+}
+.admin-nom-btn:hover { border-color: #999; background: #f0f0f0; }
+.admin-nom-btn.winner {
+  background: var(--green-bg);
+  border-color: #b8e2cb;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.refresh-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: center;
+  background: var(--amber);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  -webkit-appearance: none;
+}
+.refresh-btn:hover { background: #a86800; }
+
+/* ── TOAST ── */
+#toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--amber);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 9px 18px;
+  border-radius: 99px;
+  opacity: 0;
+  transition: opacity 0.25s, transform 0.25s;
+  pointer-events: none;
+  z-index: 999;
+  white-space: nowrap;
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* spacing helpers */
+.mt-8 { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.hidden { display: none !important; }
+
+/* ── DASHBOARD TOPBAR ── */
+.dash-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+}
+.dash-topbar-inner {
+  max-width: 540px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.dash-room-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.dash-room-code {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.btn-leave {
+  color: var(--red) !important;
+  border-color: rgba(192,57,43,0.25) !important;
+}
+.btn-leave:hover {
+  background: var(--red-bg) !important;
+  border-color: rgba(192,57,43,0.5) !important;
+}
+
+/* ── LEAVE MODAL ── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 320px;
+  width: 100%;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+.modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.modal-body {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+}
+.btn-leave-confirm {
+  background: var(--red) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.btn-leave-confirm:hover { background: #a93226 !important; }
+
+/* ── TABS ── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 10px 16px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.tab:hover { color: var(--text-secondary); }
+.tab.active { color: var(--amber); border-bottom-color: var(--amber); font-weight: 600; }
+.tab.ai-tab { color: var(--blue); }
+.tab.ai-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── AI TAB ── */
+.ai-section-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+.ai-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.ai-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border);
+  border-top-color: var(--amber);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.ai-pred-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.ai-pred-row:last-child { border-bottom: none; }
+.ai-pred-cat { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 3px; }
+.ai-pred-pick { font-size: 14px; color: var(--text); }
+.ai-pred-conf {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 99px;
+  white-space: nowrap;
+  align-self: center;
+}
+.conf-high   { background: var(--green-bg); color: var(--green); border: 1px solid #b8e2cb; }
+.conf-medium { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+.conf-low    { background: var(--surface);  color: var(--text-muted); border: 1px solid var(--border); }
+
+.ai-roast-person {
+  padding: 16px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.ai-roast-person:last-child { border-bottom: none; }
+.ai-roast-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ai-roast-name .you-badge {
+  font-size: 10px;
+  background: var(--amber-bg);
+  color: var(--amber);
+  padding: 1px 6px;
+  border-radius: 99px;
+  border: 1px solid var(--amber-border);
+  font-weight: 600;
+}
+.ai-roast-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-style: italic;
+  font-family: 'Lora', serif;
+}
+
+.ai-error {
+  padding: 16px;
+  font-size: 13px;
+  color: var(--red);
+}
+
+@media (max-width: 420px) {
+  h1 { font-size: 30px; }
+  .lb-row, .lb-header-row { grid-template-columns: 28px 1fr 50px; }
+  .lb-want, .lb-col-h:last-child { display: none; }
+  .tab { padding: 10px 12px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+
+<!-- ══════════════════════
+     LANDING
+══════════════════════ -->
+<div id="screen-landing" class="screen active">
+  <div class="container">
+    <div class="page-top">
+      <div class="eyebrow">98th Academy Awards · 2026</div>
+      <h1>Oscars<br><em>Ballot</em></h1>
+      <div class="notice notice-amber">
+        🔒 Ballot locks when ceremony begins — <strong id="cd-landing">calculating…</strong> remaining
+      </div>
+    </div>
+
+    <!-- REJOIN BANNER (shown if previous session found) -->
+    <div id="rejoin-banner" class="hidden" style="margin-bottom:20px">
+      <div style="background:var(--green-bg);border:1.5px solid #b8e2cb;border-radius:var(--radius);padding:14px 16px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);margin-bottom:6px">Welcome back</div>
+        <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px" id="rejoin-name-display">—</div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:12px">Room <span id="rejoin-code-display" style="font-weight:600;letter-spacing:0.08em">—</span></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-primary" style="flex:1;height:40px;font-size:14px" onclick="rejoinSession()">Rejoin room →</button>
+          <button class="btn btn-secondary" style="width:auto;padding:0 14px;height:40px;font-size:13px" onclick="clearRejoin()">Not me</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOIN (primary CTA) -->
+    <div class="field">
+      <label for="join-name">Your name</label>
+      <input type="text" id="join-name" placeholder="e.g. Bengisu" maxlength="30" autocomplete="off">
+    </div>
+    <div class="field">
+      <label for="join-code">Room code</label>
+      <input type="text" id="join-code" placeholder="e.g. REEL42" maxlength="10" autocomplete="off" style="text-transform:uppercase;letter-spacing:0.1em">
+    </div>
+    <button class="btn btn-primary" onclick="joinRoom()">Join room & fill ballot</button>
+
+    <div class="divider">or start a new room</div>
+
+    <!-- CREATE (secondary CTA) -->
+    <div class="field">
+      <label for="new-name">Your name</label>
+      <input type="text" id="new-name" placeholder="e.g. Bengisu" maxlength="30" autocomplete="off">
+    </div>
+    <button class="btn btn-secondary" id="btn-create" onclick="createRoom()">Create a new room</button>
+
+    <p style="font-size:12px;color:var(--text-muted);margin-top:24px;line-height:1.6;">
+      Dolby Theatre · Los Angeles · Sunday March 15, 2026 · 7:00 PM ET
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     BALLOT PAGE 1 — HEARTS
+══════════════════════ -->
+<div id="screen-ballot-hearts" class="screen">
+  <div class="ballot-header">
+    <div class="ballot-header-inner">
+      <div class="ballot-header-name" id="ballot-user-name">—</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill-h"></div></div>
+      <div class="progress-label" id="progress-label-h">0/10</div>
+    </div>
+  </div>
+  <div class="cd-bar plenty" id="ballot-cd-bar">🔒 Locks in <span id="cd-ballot">—</span></div>
+
+  <div class="container" style="padding-top:24px">
+    <div class="eyebrow" style="margin-bottom:8px">Step 1 of 2</div>
+    <h1 style="margin-bottom:8px">Who do you<br><em>want</em> to win?</h1>
+    <p style="font-size:14px;color:var(--text-secondary);margin-bottom:4px;">Your heart picks — visible to friends right away.</p>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:24px;font-style:italic;">Don't worry about predictions yet, that's next.</p>
+  </div>
+
+  <div class="container" id="ballot-body-hearts" style="padding-bottom:120px"></div>
+
+  <div class="ballot-footer">
+    <div class="ballot-footer-inner">
+      <div class="footer-count"><strong id="footer-done-h">0</strong>/10 picked</div>
+      <button class="btn btn-primary" id="btn-next" style="width:auto;padding:0 24px" onclick="goToPredictions()" disabled>
+        Next: Predictions →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     BALLOT PAGE 2 — PREDICTIONS
+══════════════════════ -->
+<div id="screen-ballot-predicts" class="screen">
+  <div class="ballot-header">
+    <div class="ballot-header-inner">
+      <div class="ballot-header-name" id="ballot-user-name-2">—</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill-p"></div></div>
+      <div class="progress-label" id="progress-label-p">0/10</div>
+    </div>
+  </div>
+  <div class="cd-bar plenty" id="ballot-cd-bar-2">🔒 Locks in <span id="cd-ballot-2">—</span></div>
+
+  <div class="container" style="padding-top:24px">
+    <div class="eyebrow" style="margin-bottom:8px">Step 2 of 2</div>
+    <h1 style="margin-bottom:8px">Who do you<br><em>think</em> will win?</h1>
+    <p style="font-size:14px;color:var(--text-secondary);margin-bottom:24px;">Your predictions — hidden from friends until each winner is announced.</p>
+  </div>
+
+  <div class="container" id="ballot-body-predicts" style="padding-bottom:120px"></div>
+
+  <div class="ballot-footer">
+    <div class="ballot-footer-inner">
+      <div class="footer-count"><strong id="footer-done-p">0</strong>/10 predicted</div>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn-secondary" style="width:auto;padding:0 16px;height:44px" onclick="showScreen('screen-ballot-hearts')">← Back</button>
+        <button class="btn btn-primary" id="btn-lock" style="width:auto;padding:0 24px" onclick="lockBallot()" disabled>
+          Lock ballot 🔒
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     DASHBOARD (lobby + results unified)
+══════════════════════ -->
+<div id="screen-dashboard" class="screen">
+
+  <!-- sticky top bar -->
+  <div class="dash-topbar">
+    <div class="dash-topbar-inner">
+      <div>
+        <div class="dash-room-label">Room</div>
+        <div class="dash-room-code" id="dash-room-code">——</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="btn-sm" onclick="copyInvite()">Invite</button>
+        <button class="btn-sm" onclick="editBallot()">Edit ballot</button>
+        <button class="btn-sm btn-leave" onclick="confirmLeave()">Leave</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- countdown -->
+  <div class="notice notice-amber" id="dash-cd-notice" style="border-radius:0;border-left:none;border-right:none;border-top:none;margin:0">
+    🔒 Ballot locks in <strong id="cd-dash">—</strong>
+  </div>
+
+  <div class="container" style="padding-top:20px;padding-bottom:60px">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+      <div class="eyebrow" id="dash-eyebrow">0 members</div>
+      <button class="admin-link" id="admin-toggle-btn" style="margin:0" onclick="toggleAdmin()">Enter winners</button>
+    </div>
+
+    <!-- ADMIN -->
+    <div id="admin-box" class="admin-box hidden" style="margin-bottom:16px">
+      <div class="admin-box-header">
+        <span>Enter winners</span>
+        <span style="font-weight:400;font-size:11px;letter-spacing:0;text-transform:none;opacity:0.7">Select as each is announced</span>
+      </div>
+      <div id="admin-auth-section">
+        <div class="admin-auth-row">
+          <input type="password" id="admin-pw" placeholder="Password (room code lowercase)" autocomplete="off">
+          <button class="btn-sm" onclick="unlockAdmin()">Unlock</button>
+        </div>
+        <div class="admin-hint">Hint: password is your room code in lowercase</div>
+      </div>
+      <div id="admin-cats" class="hidden"></div>
+      <button class="refresh-btn hidden" id="admin-refresh-btn" onclick="refreshResults()">↻ Refresh scores</button>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active" id="tab-btn-leaderboard" onclick="switchTab('leaderboard', this)">Leaderboard</button>
+      <button class="tab" id="tab-btn-yourpicks" onclick="switchTab('yourpicks', this)">Your Picks</button>
+      <button class="tab" id="tab-btn-favorites" onclick="switchTab('favorites', this)">Favorites</button>
+    </div>
+
+    <!-- TAB: LEADERBOARD -->
+    <div id="tab-leaderboard" class="tab-panel active">
+      <div class="card mb-16" id="lb-card"></div>
+    </div>
+
+    <!-- TAB: YOUR PICKS -->
+    <div id="tab-yourpicks" class="tab-panel hidden">
+      <div class="card mb-16">
+        <div id="your-picks"></div>
+      </div>
+    </div>
+
+    <!-- TAB: FAVORITES -->
+    <div id="tab-favorites" class="tab-panel hidden">
+      <div class="card mb-16">
+        <div id="wants-list"></div>
+      </div>
+
+      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;margin-top:8px">What your favorites say about you</div>
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">A psychological profile. Not medical advice.</p>
+      <div class="card mb-16" id="ai-roast-card">
+        <div class="ai-loading" id="ai-roast-loading">
+          <div class="ai-spinner"></div>
+          <span>Reading your picks…</span>
+        </div>
+        <div id="ai-roast-content" class="hidden"></div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<!-- LEAVE CONFIRMATION MODAL -->
+<div id="leave-modal" class="modal-backdrop hidden">
+  <div class="modal-box">
+    <div class="modal-title">Leave this room?</div>
+    <div class="modal-body">You can always rejoin with the same name and room code — your picks are saved in the cloud.</div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" style="flex:1" onclick="cancelLeave()">Cancel</button>
+      <button class="btn btn-leave-confirm" style="flex:1" onclick="leaveRoom()">Yes, leave</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════
+// DATA
+// ══════════════════════════════════════
+const LOCK_TIME = new Date('2026-03-15T19:00:00-05:00');
+
+const CATS = [
+  { id:'best_picture',   label:'Best Picture',            pts:10, section:'Best Picture',  nominees:[
+    {n:'Bugonia'},{n:'F1'},{n:'Frankenstein'},{n:'Hamnet'},{n:'Marty Supreme'},
+    {n:'One Battle After Another'},{n:'The Secret Agent'},{n:'Sentimental Value'},{n:'Sinners'},{n:'Train Dreams'}
+  ]},
+  { id:'best_director',  label:'Best Director',           pts:8,  section:'Directing', nominees:[
+    {n:'Chloé Zhao',f:'Hamnet'},{n:'Josh Safdie',f:'Marty Supreme'},
+    {n:'Paul Thomas Anderson',f:'One Battle After Another'},{n:'Joachim Trier',f:'Sentimental Value'},{n:'Ryan Coogler',f:'Sinners'}
+  ]},
+  { id:'best_actor',     label:'Best Actor',              pts:8,  section:'Acting', nominees:[
+    {n:'Timothée Chalamet',f:'Marty Supreme'},{n:'Leonardo DiCaprio',f:'One Battle After Another'},
+    {n:'Ethan Hawke',f:'Blue Moon'},{n:'Michael B. Jordan',f:'Sinners'},{n:'Wagner Moura',f:'The Secret Agent'}
+  ]},
+  { id:'best_actress',   label:'Best Actress',            pts:8,  section:null, nominees:[
+    {n:'Jessie Buckley',f:'Hamnet'},{n:"Rose Byrne",f:"If I Had Legs I'd Kick You"},
+    {n:'Kate Hudson',f:'Song Sung Blue'},{n:'Renate Reinsve',f:'Sentimental Value'},{n:'Emma Stone',f:'Bugonia'}
+  ]},
+  { id:'best_supp_actor',  label:'Best Supporting Actor', pts:8,  section:null, nominees:[
+    {n:'Benicio Del Toro',f:'One Battle After Another'},{n:'Jacob Elordi',f:'Frankenstein'},
+    {n:'Delroy Lindo',f:'Sinners'},{n:'Sean Penn',f:'One Battle After Another'},{n:'Stellan Skarsgård',f:'Sentimental Value'}
+  ]},
+  { id:'best_supp_actress',label:'Best Supporting Actress',pts:8, section:null, nominees:[
+    {n:'Elle Fanning',f:'Sentimental Value'},{n:'Inga Ibsdotter Lilleaas',f:'Sentimental Value'},
+    {n:'Amy Madigan',f:'Weapons'},{n:'Wunmi Mosaku',f:'Sinners'},{n:'Teyana Taylor',f:'One Battle After Another'}
+  ]},
+  { id:'best_orig_sp',   label:'Best Original Screenplay',pts:6,  section:'Screenwriting', nominees:[
+    {n:'Blue Moon'},{n:'It Was Just an Accident'},{n:'Marty Supreme'},{n:'Sentimental Value'},{n:'Sinners'}
+  ]},
+  { id:'best_adapt_sp',  label:'Best Adapted Screenplay', pts:6,  section:null, nominees:[
+    {n:'Bugonia'},{n:'Frankenstein'},{n:'Hamnet'},{n:'One Battle After Another'},{n:'Train Dreams'}
+  ]},
+  { id:'best_animated',  label:'Best Animated Feature',  pts:6,  section:'Animation', nominees:[
+    {n:'Arco'},{n:'Elio'},{n:'KPop Demon Hunters'},{n:"Little Amélie or the Character of Rain"},{n:'Zootopia 2'}
+  ]},
+  { id:'best_casting',   label:'Best Casting',           pts:6,  section:'Craft', nominees:[
+    {n:'Nina Gold',f:'Hamnet'},{n:'Jennifer Venditti',f:'Marty Supreme'},
+    {n:'Cassandra Kulukundis',f:'One Battle After Another'},{n:'Gabriel Domingues',f:'The Secret Agent'},
+    {n:'Francine Maisler',f:'Sinners'}
+  ]},
+];
+
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+let myName = '', roomCode = '', predicts = {}, hearts = {}, adminUnlocked = false;
+
+// ── SUPABASE CONFIG ──
+const SB_URL   = 'https://blbmjumcvzuxtdfvenxu.supabase.co';
+const SB_KEY   = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJsYm1qdW1jdnp1eHRkZnZlbnh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1OTY0MDYsImV4cCI6MjA4OTE3MjQwNn0.rUy-0O3M_RXQNrzeQYdF4n2zWN7nR1-d-7H6ML2wEYY';
+const SB_HEADS = { 'Content-Type':'application/json', 'apikey': SB_KEY, 'Authorization': `Bearer ${SB_KEY}` };
+
+// Use Supabase if served over http/https, localStorage fallback if opened as file://
+const USE_CLOUD = location.protocol !== 'file:';
+
+async function sbGet(table, code) {
+  if (!USE_CLOUD) {
+    try { return JSON.parse(localStorage.getItem(`sb_${table}_${code}`) || 'null'); } catch { return null; }
+  }
+  const r = await fetch(`${SB_URL}/rest/v1/${table}?code=eq.${code}&select=data`, { headers: SB_HEADS });
+  if (!r.ok) throw new Error(`Supabase GET failed: ${r.status}`);
+  const rows = await r.json();
+  return rows?.[0]?.data || null;
+}
+
+async function sbSet(table, code, data) {
+  if (!USE_CLOUD) {
+    localStorage.setItem(`sb_${table}_${code}`, JSON.stringify(data));
+    return;
+  }
+  const res = await fetch(`${SB_URL}/rest/v1/${table}`, {
+    method: 'POST',
+    headers: { ...SB_HEADS, 'Prefer': 'resolution=merge-duplicates,return=minimal' },
+    body: JSON.stringify({ code, data, updated_at: new Date().toISOString() })
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`Supabase POST failed: ${res.status} — ${err}`);
+  }
+}
+
+// ── ROOM HELPERS (now async) ──
+async function getRoom()       { return await sbGet('rooms', roomCode) || {}; }
+async function saveRoom(d)     { await sbSet('rooms', roomCode, d); }
+async function getWinners()    { return await sbGet('winners', roomCode) || {}; }
+async function saveWinners(w)  { await sbSet('winners', roomCode, w); }
+
+async function saveMe() {
+  const room = await getRoom();
+  if (!room.members) room.members = {};
+  room.members[myName] = { name: myName, predicts, hearts };
+  await saveRoom(room);
+}
+
+// ══════════════════════════════════════
+// COUNTDOWN
+// ══════════════════════════════════════
+function remaining() {
+  const d = LOCK_TIME - Date.now();
+  if (d <= 0) return null;
+  const h = Math.floor(d / 3600000);
+  const m = Math.floor((d % 3600000) / 60000);
+  const s = Math.floor((d % 60000) / 1000);
+  return h > 0 ? `${h}h ${m}m ${s}s` : `${m}m ${s}s`;
+}
+
+function cdClass() {
+  const d = LOCK_TIME - Date.now();
+  if (d <= 0) return 'locked';
+  if (d < 30*60*1000) return 'urgent';
+  if (d < 2*3600*1000) return 'warn';
+  return 'plenty';
+}
+
+function tickAll() {
+  const t = remaining(), cls = cdClass();
+
+  // Landing
+  const cdLanding = el('cd-landing');
+  if (cdLanding) cdLanding.textContent = t || 'locked';
+
+  // Ballot bar 1
+  const bar = el('ballot-cd-bar');
+  if (bar) {
+    bar.className = 'cd-bar ' + cls;
+    const span = bar.querySelector('span');
+    if (t) {
+      if (span) { span.textContent = t; }
+      else { bar.innerHTML = `🔒 Locks in <span>${t}</span>`; }
+    } else {
+      bar.textContent = '🔒 Ballot is locked — ceremony underway';
+    }
+  }
+
+  // Ballot bar 2
+  const bar2 = el('ballot-cd-bar-2');
+  if (bar2) {
+    bar2.className = 'cd-bar ' + cls;
+    const span2 = bar2.querySelector('span');
+    if (t) {
+      if (span2) { span2.textContent = t; }
+      else { bar2.innerHTML = `🔒 Locks in <span>${t}</span>`; }
+    } else {
+      bar2.textContent = '🔒 Ballot is locked — ceremony underway';
+    }
+  }
+
+  // Dashboard notice
+  const dn = el('dash-cd-notice');
+  if (dn) {
+    dn.className = `notice ${cls === 'urgent' ? 'notice-red' : 'notice-amber'}`;
+    dn.style.cssText = 'border-radius:0;border-left:none;border-right:none;border-top:none;margin:0';
+    const strong = dn.querySelector('strong');
+    if (t) {
+      if (strong) { strong.textContent = t; }
+      else { dn.innerHTML = `🔒 Ballot locks in <strong>${t}</strong>`; }
+    } else {
+      dn.textContent = '🔒 Ballot is locked — ceremony underway';
+    }
+  }
+}
+setInterval(tickAll, 1000);
+tickAll();
+
+// ══════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════
+function el(id) { return document.getElementById(id); }
+function setText(id, v) { const e = el(id); if (e) e.textContent = v; }
+function trunc(s, n) { return s.length > n ? s.slice(0, n) + '…' : s; }
+function genCode() {
+  const w = ['REEL','LENS','NOIR','CINE','FILM','GOLD','STAR','PALM','IRIS'];
+  return w[Math.floor(Math.random()*w.length)] + Math.floor(10 + Math.random()*90);
+}
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  el(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function toast(msg) {
+  const t = el('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// ══════════════════════════════════════
+// LANDING
+// ══════════════════════════════════════
+function saveSession() {
+  localStorage.setItem('ob_last_session', JSON.stringify({ name: myName, code: roomCode }));
+}
+
+async function createRoom() {
+  const name = el('new-name').value.trim();
+  if (!name) { el('new-name').classList.add('error'); el('new-name').focus(); return; }
+  const btn = el('btn-create');
+  btn.textContent = 'Creating…'; btn.disabled = true;
+  try {
+    myName = name;
+    roomCode = genCode();
+    await saveRoom({ code: roomCode, members: {} });
+    saveSession();
+    launchBallot();
+  } catch(e) {
+    toast('Error: ' + (e.message || 'connection failed'));
+    console.error('createRoom error:', e);
+    btn.textContent = 'Create room & fill ballot';
+    btn.disabled = false;
+  }
+}
+
+async function joinRoom() {
+  const name = el('join-name').value.trim();
+  const code = el('join-code').value.trim().toUpperCase();
+  if (!name) { el('join-name').classList.add('error'); el('join-name').focus(); return; }
+  if (!code) { el('join-code').classList.add('error'); el('join-code').focus(); return; }
+  const joinBtn = document.querySelector('#screen-landing .btn-primary:not(#rejoin-banner .btn-primary)');
+  joinBtn.textContent = 'Joining…'; joinBtn.disabled = true;
+  try {
+    const room = await sbGet('rooms', code);
+    if (!room) { toast('Room not found — check the code'); el('join-code').classList.add('error'); return; }
+    const count = Object.keys(room.members || {}).length;
+    if (count >= 10 && !room.members[name]) { toast('Room is full (max 10 friends)'); return; }
+    myName = name; roomCode = code;
+    saveSession();
+    // Name already exists in room — restore picks and go straight to dashboard
+    const me = room.members?.[name];
+    if (me) {
+      predicts = me.predicts || {};
+      hearts   = me.hearts   || {};
+      setText('ballot-user-name', myName);
+      setText('ballot-user-name-2', myName);
+      buildHeartsPage();
+      buildPredictsPage();
+      goToDashboard();
+    } else {
+      launchBallot();
+    }
+  } catch(e) {
+    toast('Error: ' + (e.message || 'connection failed'));
+    console.error(e);
+  } finally {
+    joinBtn.textContent = 'Join room & fill ballot'; joinBtn.disabled = false;
+  }
+}
+
+// ══════════════════════════════════════
+// BALLOT — TWO PAGES
+// ══════════════════════════════════════
+function launchBallot() {
+  setText('ballot-user-name', myName);
+  setText('ballot-user-name-2', myName);
+  buildHeartsPage();
+  buildPredictsPage();
+  showScreen('screen-ballot-hearts');
+}
+
+function buildHeartsPage() {
+  const body = el('ballot-body-hearts');
+  body.innerHTML = '';
+  let lastSection = null;
+
+  CATS.forEach(cat => {
+    if (cat.section && cat.section !== lastSection) {
+      lastSection = cat.section;
+      const sh = document.createElement('div');
+      sh.className = 'section-heading';
+      sh.textContent = cat.section;
+      body.appendChild(sh);
+    }
+
+    const block = document.createElement('div');
+    block.className = 'cat-block';
+    block.id = 'hcat-' + cat.id;
+
+    block.innerHTML = `
+      <div class="cat-title-row">
+        <div class="cat-title">${cat.label}</div>
+        <div class="cat-pts">${cat.pts} pts</div>
+      </div>
+      ${cat.nominees.map(nom => {
+        const sid = safeid('h', cat.id, nom.n);
+        const sel = hearts[cat.id] === nom.n ? 'selected-heart' : '';
+        return `
+          <div class="nominee-row">
+            <div class="nominee-name-cell">
+              ${nom.n}${nom.f ? `<span class="nominee-film">${nom.f}</span>` : ''}
+            </div>
+            <button class="pick-cell ${sel}" id="${sid}" onclick="pickHeart('${cat.id}','${esc(nom.n)}')" style="grid-column:2/4;border-left:1px solid var(--border)">
+              <div class="toggle-circle">♥</div>
+            </button>
+          </div>
+        `;
+      }).join('')}
+    `;
+    body.appendChild(block);
+  });
+  updateHeartsFooter();
+}
+
+function buildPredictsPage() {
+  const body = el('ballot-body-predicts');
+  body.innerHTML = '';
+  let lastSection = null;
+
+  CATS.forEach(cat => {
+    if (cat.section && cat.section !== lastSection) {
+      lastSection = cat.section;
+      const sh = document.createElement('div');
+      sh.className = 'section-heading';
+      sh.textContent = cat.section;
+      body.appendChild(sh);
+    }
+
+    const block = document.createElement('div');
+    block.className = 'cat-block';
+    block.id = 'pcat-' + cat.id;
+
+    block.innerHTML = `
+      <div class="cat-title-row">
+        <div class="cat-title">${cat.label}</div>
+        <div class="cat-pts">${cat.pts} pts</div>
+      </div>
+      ${cat.nominees.map(nom => {
+        const sid = safeid('p', cat.id, nom.n);
+        const sel = predicts[cat.id] === nom.n ? 'selected-predict' : '';
+        return `
+          <div class="nominee-row">
+            <div class="nominee-name-cell">
+              ${nom.n}${nom.f ? `<span class="nominee-film">${nom.f}</span>` : ''}
+            </div>
+            <button class="pick-cell ${sel}" id="${sid}" onclick="pickPredict('${cat.id}','${esc(nom.n)}')" style="grid-column:2/4;border-left:1px solid var(--border)">
+              <div class="toggle-circle">✓</div>
+            </button>
+          </div>
+        `;
+      }).join('')}
+    `;
+    body.appendChild(block);
+  });
+  updatePredictsFooter();
+}
+
+function safeid(prefix, catId, name) { return `pc-${prefix}-${catId}_${name.replace(/[^a-zA-Z0-9]/g,'_')}`; }
+function esc(s) { return s.replace(/'/g, "\\'"); }
+
+async function pickHeart(catId, name) {
+  const cat = CATS.find(c => c.id === catId);
+  cat.nominees.forEach(n => {
+    const btn = el(safeid('h', catId, n.n));
+    if (btn) btn.classList.remove('selected-heart');
+  });
+  const btn = el(safeid('h', catId, name));
+  if (btn) btn.classList.add('selected-heart');
+  hearts[catId] = name;
+  updateHeartsFooter();
+  if (myName && roomCode) await saveMe();
+}
+
+async function pickPredict(catId, name) {
+  const cat = CATS.find(c => c.id === catId);
+  cat.nominees.forEach(n => {
+    const btn = el(safeid('p', catId, n.n));
+    if (btn) btn.classList.remove('selected-predict');
+  });
+  const btn = el(safeid('p', catId, name));
+  if (btn) btn.classList.add('selected-predict');
+  predicts[catId] = name;
+  updatePredictsFooter();
+  if (myName && roomCode) await saveMe();
+}
+
+function updateHeartsFooter() {
+  const done = CATS.filter(c => hearts[c.id]).length;
+  el('progress-fill-h').style.width = (done / CATS.length * 100) + '%';
+  setText('progress-label-h', done + '/' + CATS.length);
+  setText('footer-done-h', done);
+  el('btn-next').disabled = done < CATS.length;
+}
+
+function updatePredictsFooter() {
+  const done = CATS.filter(c => predicts[c.id]).length;
+  el('progress-fill-p').style.width = (done / CATS.length * 100) + '%';
+  setText('progress-label-p', done + '/' + CATS.length);
+  setText('footer-done-p', done);
+  el('btn-lock').disabled = done < CATS.length;
+}
+
+function goToPredictions() {
+  showScreen('screen-ballot-predicts');
+}
+
+// ══════════════════════════════════════
+// LOCK → DASHBOARD
+// ══════════════════════════════════════
+async function lockBallot() {
+  if (CATS.some(c => !predicts[c.id] || !hearts[c.id])) return;
+  const btn = el('btn-lock');
+  btn.textContent = 'Saving…'; btn.disabled = true;
+  await saveMe();
+  btn.textContent = 'Lock ballot 🔒';
+  goToDashboard();
+}
+
+function copyInvite() {
+  const url = `https://oscars-rho.vercel.app?room=${roomCode}`;
+  const text = `Join my Oscars 2026 ballot! 🎬\nRoom code: ${roomCode}\n${url}`;
+  navigator.clipboard ? navigator.clipboard.writeText(text).then(() => toast('✓ Invite copied!')) : toast(`Code: ${roomCode}`);
+}
+
+function editBallot() {
+  const heartsDone = Object.keys(hearts).length === CATS.length;
+  showScreen(heartsDone ? 'screen-ballot-predicts' : 'screen-ballot-hearts');
+}
+
+// ══════════════════════════════════════
+// DASHBOARD (unified lobby + results)
+// ══════════════════════════════════════
+async function calcScore(pred) {
+  const w = await getWinners();
+  return CATS.reduce((s, c) => s + (w[c.id] && pred[c.id] === w[c.id] ? c.pts : 0), 0);
+}
+
+async function goToDashboard() {
+  await buildDashboard();
+  showScreen('screen-dashboard');
+}
+
+function goResults() { goToDashboard(); }
+
+async function buildDashboard() {
+  const room = await getRoom();
+  const members = Object.values(room.members || {});
+  const winners = await getWinners();
+  const annCount = Object.keys(winners).length;
+
+  setText('dash-room-code', roomCode);
+  setText('dash-eyebrow', `${members.length} member${members.length !== 1 ? 's' : ''} \u00b7 ${annCount}/${CATS.length} announced`);
+
+  // LEADERBOARD
+  const ranked = (await Promise.all(members
+    .map(async m => ({ name: m.name, score: await calcScore(m.predicts || {}), hearts: m.hearts || {} }))))
+    .sort((a, b) => b.score - a.score);
+
+  const lbCard = el('lb-card');
+  if (!ranked.length) {
+    lbCard.innerHTML = '<div style="padding:16px;font-size:14px;color:var(--text-muted);font-style:italic">No members yet \u2014 share your room code!</div>';
+  } else {
+    lbCard.innerHTML = `
+      <div class="lb-header-row">
+        <div class="lb-col-h">#</div>
+        <div class="lb-col-h">Name</div>
+        <div class="lb-col-h right">Score</div>
+        <div class="lb-col-h right">\u2665 Best Picture</div>
+      </div>
+      ${ranked.map((m, i) => `
+        <div class="lb-row ${m.name === myName ? 'me' : ''}">
+          <div class="lb-rank ${i === 0 && m.score > 0 ? 'first' : ''}">${i === 0 && m.score > 0 ? '\u{1F3C6}' : i+1}</div>
+          <div class="lb-name">${m.name}${m.name === myName ? ' \u00b7 you' : ''}</div>
+          <div class="lb-score">${m.score}</div>
+          <div class="lb-want">${m.hearts['best_picture'] || '\u2014'}</div>
+        </div>
+      `).join('')}
+    `;
+  }
+
+  // YOUR PICKS
+  const me = room.members?.[myName];
+  el('your-picks').innerHTML = me ? CATS.map(cat => {
+    const pred = me.predicts?.[cat.id] || '\u2014';
+    const want = me.hearts?.[cat.id]   || '\u2014';
+    const w = winners[cat.id];
+    const correct = w && pred === w;
+    const wrong   = w && pred !== w;
+    const pts     = correct ? `+${cat.pts}` : w ? '0' : '?';
+    const ptsCls  = correct ? '' : w ? 'zero' : 'pending';
+    return `
+      <div class="pick-row">
+        <div>
+          <div class="pick-cat">${cat.label}</div>
+          <div class="pick-predict ${correct?'correct':wrong?'wrong':''}">\u{1F52E} ${pred}${correct?' \u2713':wrong?' \u2717':''}</div>
+          <div class="pick-heart-val">\u2665 ${want}</div>
+        </div>
+        <div class="pick-pts ${ptsCls}">${pts}</div>
+      </div>
+    `;
+  }).join('') : '<div style="padding:16px;font-size:14px;color:var(--text-muted)">Submit your ballot first.</div>';
+
+  // FAVORITES
+  el('wants-list').innerHTML = CATS.map(cat => {
+    const w = winners[cat.id];
+    const tags = members.map(m => {
+      const h = m.hearts?.[cat.id];
+      if (!h) return '';
+      return `<span class="wants-tag"><span class="who">${m.name}:</span>${h}</span>`;
+    }).filter(Boolean).join('');
+    return `
+      <div class="wants-cat-row">
+        <div class="wants-cat-name">
+          <span>${cat.label}</span>
+          ${w ? `<span class="winner-announced">\u2713 ${w.length > 24 ? w.slice(0,24)+'\u2026' : w}</span>` : ''}
+        </div>
+        <div class="wants-tags">${tags || '<span style="font-size:13px;color:var(--text-muted);font-style:italic">No picks yet</span>'}</div>
+      </div>
+    `;
+  }).join('');
+
+  if (adminUnlocked) buildAdminCats();
+}
+
+async function buildResults() { await buildDashboard(); }
+
+async function refreshResults() {
+  await buildDashboard();
+  if (roastLoaded) {
+    el('ai-roast-loading').classList.remove('hidden');
+    el('ai-roast-content').classList.add('hidden');
+    loadAIRoast();
+  }
+  toast('↻ Scores updated');
+}
+
+// ══════════════════════════════════════
+// ADMIN
+// ══════════════════════════════════════
+function toggleAdmin() { el('admin-box').classList.toggle('hidden'); }
+
+function unlockAdmin() {
+  const pw = el('admin-pw').value;
+  if (pw !== roomCode.toLowerCase()) {
+    el('admin-pw').classList.add('error');
+    el('admin-pw').value = '';
+    el('admin-pw').placeholder = 'Wrong — try again';
+    setTimeout(() => { el('admin-pw').classList.remove('error'); el('admin-pw').placeholder = 'Password (room code lowercase)'; }, 2000);
+    return;
+  }
+  adminUnlocked = true;
+  el('admin-auth-section').classList.add('hidden');
+  el('admin-cats').classList.remove('hidden');
+  el('admin-refresh-btn').classList.remove('hidden');
+  buildAdminCats();
+}
+
+async function buildAdminCats() {
+  const winners = await getWinners();
+  el('admin-cats').innerHTML = CATS.map(cat => {
+    const w = winners[cat.id];
+    const btns = cat.nominees.map(n => `
+      <button class="admin-nom-btn ${w === n.n ? 'winner' : ''}"
+        onclick="setWinner('${cat.id}','${esc(n.n)}',this)">
+        ${n.n}${n.f ? ` · <span style="opacity:0.6;font-size:11px">${n.f}</span>` : ''}
+      </button>
+    `).join('');
+    return `
+      <div class="admin-cat">
+        <div class="admin-cat-label">
+          <span>${cat.label}</span>
+          ${w ? `<span class="admin-set-badge">✓ ${trunc(w, 22)}</span>` : ''}
+        </div>
+        <div class="admin-nom-btns" id="admin-btns-${cat.id}">${btns}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+async function setWinner(catId, name, btn) {
+  const w = await getWinners();
+  w[catId] = name;
+  await saveWinners(w);
+  const container = el('admin-btns-' + catId);
+  container.querySelectorAll('.admin-nom-btn').forEach(b => b.classList.remove('winner'));
+  btn.classList.add('winner');
+  const label = btn.closest('.admin-cat').querySelector('.admin-cat-label');
+  const existing = label.querySelector('.admin-set-badge');
+  if (existing) { existing.textContent = '✓ ' + trunc(name, 22); }
+  else {
+    const badge = document.createElement('span');
+    badge.className = 'admin-set-badge';
+    badge.textContent = '✓ ' + trunc(name, 22);
+    label.appendChild(badge);
+  }
+  await refreshResults();
+  toast('✓ ' + trunc(name, 28));
+}
+
+// ══════════════════════════════════════
+// TABS
+// ══════════════════════════════════════
+let aiLoaded = false;
+let roastLoaded = false;
+
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => { p.classList.remove('active'); p.classList.add('hidden'); });
+  btn.classList.add('active');
+  const panel = el('tab-' + name);
+  panel.classList.remove('hidden');
+  panel.classList.add('active');
+  if (name === 'ai' && !aiLoaded) {
+    aiLoaded = true;
+    loadAIPredictions();
+  }
+  if (name === 'favorites' && !roastLoaded) {
+    roastLoaded = true;
+    loadAIRoast();
+  }
+}
+
+// ══════════════════════════════════════
+// AI PREDICTIONS — instant, no delay
+// ══════════════════════════════════════
+const AI_PREDICTIONS = [
+  { cat:'Best Picture',             pick:'Sinners',                confidence:'high',   reason:'Dominated the guild season. Ryan Coogler\'s best work yet.' },
+  { cat:'Best Director',            pick:'Ryan Coogler',           confidence:'high',   reason:'DGA win makes this near-certain.' },
+  { cat:'Best Actor',               pick:'Timothée Chalamet',      confidence:'high',   reason:'SAG + BAFTA + Critics Choice — a clean sweep.' },
+  { cat:'Best Actress',             pick:'Renate Reinsve',         confidence:'medium', reason:'Norwegian darling of the festival circuit. BAFTA favourite.' },
+  { cat:'Best Supporting Actor',    pick:'Delroy Lindo',           confidence:'medium', reason:'Decades-overdue narrative. Strong guild support.' },
+  { cat:'Best Supporting Actress',  pick:'Wunmi Mosaku',           confidence:'medium', reason:'Breakout performance, strong precursor run.' },
+  { cat:'Best Original Screenplay', pick:'Sinners',                confidence:'high',   reason:'WGA winner. Coogler\'s script is the talk of the season.' },
+  { cat:'Best Adapted Screenplay',  pick:'Hamnet',                 confidence:'medium', reason:'BAFTA adapted winner. Literary prestige favourite.' },
+  { cat:'Best Animated Feature',    pick:'Elio',                   confidence:'low',    reason:'Pixar advantage, but KPop Demon Hunters is a real threat.' },
+  { cat:'Best Casting',             pick:'Francine Maisler',       confidence:'high',   reason:'Sinners\' ensemble is the talk of the season. Near lock.' },
+];
+
+function loadAIPredictions() {
+  el('ai-pred-loading').classList.add('hidden');
+  el('ai-pred-content').classList.remove('hidden');
+  el('ai-pred-content').innerHTML = AI_PREDICTIONS.map(p => `
+    <div class="ai-pred-row">
+      <div>
+        <div class="ai-pred-cat">${p.cat}</div>
+        <div class="ai-pred-pick">${p.pick}</div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:2px">${p.reason}</div>
+      </div>
+      <div class="ai-pred-conf conf-${p.confidence}">${p.confidence}</div>
+    </div>
+  `).join('') + `<div style="padding:10px 16px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border)">Based on DGA, SAG, BAFTA, WGA wins + critic consensus · March 15, 2026</div>`;
+}
+
+// ══════════════════════════════════════
+// AI ROAST — rule-based, instant
+// ══════════════════════════════════════
+const FILM_VIBES = {
+  'Sinners':                  { adjective:'crowd-pleaser',     insight:'wants cinema to mean something again' },
+  'Hamnet':                   { adjective:'bookish',           insight:'has read the source material and mentioned it twice already' },
+  'Sentimental Value':        { adjective:'emotionally reckless', insight:'pauses movies to explain what they\'re feeling' },
+  'One Battle After Another': { adjective:'maximalist',        insight:'thinks runtime is a love language' },
+  'Marty Supreme':            { adjective:'contrarian',        insight:'rooted for the underdog before it was cool' },
+  'Train Dreams':             { adjective:'patient',           insight:'owns a Criterion subscription and uses it' },
+  'Bugonia':                  { adjective:'chaotic',           insight:'is impossible to shop for' },
+  'The Secret Agent':         { adjective:'suspicious',        insight:'doesn\'t trust anyone at this party' },
+  'Frankenstein':             { adjective:'dramatic',          insight:'definitely has a complicated relationship with their creator' },
+  'F1':                       { adjective:'easily impressed',  insight:'audibly said "wow" at an IMAX trailer' },
+  'Timothée Chalamet':        { adjective:'devoted',           insight:'has strong opinions about cheekbones' },
+  'Leonardo DiCaprio':        { adjective:'loyal',             insight:'has been rooting for this man since Titanic' },
+  'Renate Reinsve':           { adjective:'sophisticated',     insight:'discovered her in The Worst Person in the World and never shut up about it' },
+  'Ryan Coogler':             { adjective:'justice-seeking',   insight:'has been saying "it\'s his time" since Black Panther' },
+  'Joachim Trier':            { adjective:'melancholy',        insight:'relates to films where people stare out of windows a lot' },
+  'Elio':                     { adjective:'wholesome',         insight:'cried at the trailer and isn\'t sorry about it' },
+  'Zootopia 2':               { adjective:'unapologetic',      insight:'is the only honest person in this room' },
+  'Chloé Zhao':               { adjective:'contemplative',     insight:'takes long walks and calls it research' },
+  'Josh Safdie':              { adjective:'intense',           insight:'makes everyone around them slightly nervous' },
+  'Paul Thomas Anderson':     { adjective:'serious',           insight:'has a lot of thoughts about the American condition' },
+  'Wunmi Mosaku':             { adjective:'discerning',        insight:'always notices the best performance in the room' },
+  'Delroy Lindo':             { adjective:'patient',           insight:'believes in long games and is usually right' },
+  'Elle Fanning':             { adjective:'earnest',           insight:'still believes in movies, genuinely' },
+  'Jessie Buckley':           { adjective:'intense',           insight:'feels things very fully and wants you to know about it' },
+  'Emma Stone':               { adjective:'reliable',          insight:'has good taste and no desire to explain it' },
+};
+
+const DOMINANT_THRESHOLDS = [[9,'picked {film} for literally everything. We get it. You have a type.'],[7,'went {film} for 7+ categories. Either deeply devoted or deeply in denial.'],[5,'is riding hard for {film}. Bold. Consistent. Possibly obsessed.']];
+
+function getRoastForPerson(member) {
+  const picks = Object.values(member.hearts || {}).filter(Boolean);
+  if (!picks.length) return `${member.name} hasn't submitted picks yet. The audacity.`;
+
+  const freq = {};
+  picks.forEach(p => { freq[p] = (freq[p] || 0) + 1; });
+  const sorted = Object.entries(freq).sort((a,b) => b[1]-a[1]);
+  const [topFilm, topCount] = sorted[0];
+  const topVibe = FILM_VIBES[topFilm];
+
+  for (const [threshold, tmpl] of DOMINANT_THRESHOLDS) {
+    if (topCount >= threshold) return `${member.name} ${tmpl.replace('{film}', topFilm)}`;
+  }
+
+  if (sorted.length >= 2 && sorted[1][1] >= 3) {
+    const vibe2 = FILM_VIBES[sorted[1][0]];
+    return `${member.name} split their heart between ${topFilm} and ${sorted[1][0]}. A person of contradictions — ${topVibe?.insight || 'complex taste'}, but also ${vibe2?.insight || 'full of surprises'}.`;
+  }
+
+  if (topVibe) return `${member.name} is ${topVibe.adjective} — someone who ${topVibe.insight}.`;
+
+  const uniqueCount = Object.keys(freq).length;
+  if (uniqueCount >= 7) return `${member.name} picked a different film for almost every category. Refuses to commit. Great at parties, impossible to plan a holiday with.`;
+  return `${member.name} has eclectic taste and strong opinions. Probably corrects people on director pronunciations at dinner.`;
+}
+
+async function loadAIRoast() {
+  const room = await getRoom();
+  const members = Object.values(room.members || {});
+  el('ai-roast-loading').classList.add('hidden');
+  el('ai-roast-content').classList.remove('hidden');
+
+  if (!members.length) {
+    el('ai-roast-content').innerHTML = '<div style="padding:16px;font-size:14px;color:var(--text-muted)">No members to roast yet.</div>';
+    return;
+  }
+
+  const sorted = [...members].sort((a,b) => a.name === myName ? -1 : b.name === myName ? 1 : 0);
+  el('ai-roast-content').innerHTML = sorted.map(m => `
+    <div class="ai-roast-person">
+      <div class="ai-roast-name">
+        ${m.name}${m.name === myName ? ' <span class="you-badge">you</span>' : ''}
+      </div>
+      <div class="ai-roast-text">"${getRoastForPerson(m)}"</div>
+    </div>
+  `).join('');
+}
+
+// ══════════════════════════════════════
+// LEAVE ROOM
+// ══════════════════════════════════════
+function confirmLeave() { el('leave-modal').classList.remove('hidden'); }
+function cancelLeave()  { el('leave-modal').classList.add('hidden'); }
+
+function leaveRoom() {
+  el('leave-modal').classList.add('hidden');
+  myName = ''; roomCode = ''; predicts = {}; hearts = {}; adminUnlocked = false; aiLoaded = false; roastLoaded = false;
+  localStorage.removeItem('ob_last_session');
+  el('ai-pred-loading').classList.remove('hidden'); el('ai-pred-content').classList.add('hidden');
+  el('ai-roast-loading').classList.remove('hidden'); el('ai-roast-content').classList.add('hidden');
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => { p.classList.remove('active'); p.classList.add('hidden'); });
+  el('tab-btn-leaderboard').classList.add('active');
+  el('tab-leaderboard').classList.remove('hidden'); el('tab-leaderboard').classList.add('active');
+  showScreen('screen-landing');
+}
+
+// ══════════════════════════════════════
+// REJOIN — restore last session on load
+// ══════════════════════════════════════
+(function checkRejoin() {
+  const p = new URLSearchParams(location.search).get('room');
+  if (p) { el('join-code').value = p.toUpperCase(); el('join-name').focus(); }
+  const saved = localStorage.getItem('ob_last_session');
+  if (!saved) return;
+  try {
+    const { name, code } = JSON.parse(saved);
+    if (!name || !code) return;
+    setText('rejoin-name-display', name);
+    setText('rejoin-code-display', code);
+    el('rejoin-banner').classList.remove('hidden');
+  } catch(e) {}
+})();
+
+async function rejoinSession() {
+  try {
+    const { name, code } = JSON.parse(localStorage.getItem('ob_last_session'));
+    const btn = el('rejoin-banner').querySelector('.btn-primary');
+    btn.textContent = 'Rejoining…'; btn.disabled = true;
+    const room = await sbGet('rooms', code);
+    btn.textContent = 'Rejoin room →'; btn.disabled = false;
+    if (!room) { toast('Room not found — it may have expired'); clearRejoin(); return; }
+
+    myName = name;
+    roomCode = code;
+
+    const me = room.members?.[name];
+    if (me) { predicts = me.predicts || {}; hearts = me.hearts || {}; }
+
+    setText('ballot-user-name', myName);
+    setText('ballot-user-name-2', myName);
+    buildHeartsPage();
+    buildPredictsPage();
+
+    const heartsDone   = Object.keys(hearts).length   === CATS.length;
+    const predictsDone = Object.keys(predicts).length === CATS.length;
+
+    if (heartsDone && predictsDone) { goToDashboard(); }
+    else if (heartsDone) { showScreen('screen-ballot-predicts'); }
+    else { showScreen('screen-ballot-hearts'); }
+  } catch(e) {
+    toast('Couldn\'t rejoin — try entering your details manually');
+    clearRejoin();
+  }
+}
+
+function clearRejoin() {
+  localStorage.removeItem('ob_last_session');
+  el('rejoin-banner').classList.add('hidden');
+}
+</script>
+</body>
+</html>
